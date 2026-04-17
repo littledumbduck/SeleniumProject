@@ -32,11 +32,21 @@ public class InventoryTest {
     }
 
     @Test
-    public void anadirACarrito() throws InterruptedException {
+    public void anadirUnProductoAlCarrito() throws InterruptedException {
         loginPage.fullLogin("standard_user", "secret_sauce");
         inventoryPage.anadirBackpack();
         Thread.sleep(2000);
         assertEquals(1, inventoryPage.checkItemNumber());
-
     }
+
+    @Test
+    public void anadirDosProductosAlCarrito() throws InterruptedException {
+        loginPage.fullLogin("standard_user", "secret_sauce");
+        inventoryPage.anadirBackpack();
+        inventoryPage.anadirBikeLight();
+        Thread.sleep(2000);
+        assertEquals(2, inventoryPage.checkItemNumber());
+    }
+
+
 }

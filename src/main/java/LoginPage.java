@@ -27,10 +27,7 @@ public class LoginPage {
 
     public void fullLogin(String username, String password) throws InterruptedException {
         writeUsername(username);
-        Thread.sleep(2000);
         writePassword(password);
-        Thread.sleep(2000);
         submitForm();
-        Thread.sleep(2000);
     }
 }

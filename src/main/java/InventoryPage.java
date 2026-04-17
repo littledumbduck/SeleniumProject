@@ -3,11 +3,9 @@ import org.openqa.selenium.WebDriver;
 
 public class InventoryPage {
     private WebDriver driver;
-    private By sauceLabsBackpack = By.id("add-to-cart-sauce-labs-backpack");
-    private By sauceLabsBikeLight = By.id("add-to-cart-sauce-labs-bike-light");
-    private By itemNumber = By.cssSelector("shopping_cart_badge");
-    private By redBalloon = By.cssSelector("shopping_cart_badge");
-    private By buyinfBtn = By.cssSelector("shopping_cart_link");
+    private final By sauceLabsBackpack = By.id("add-to-cart-sauce-labs-backpack");
+    private final By sauceLabsBikeLight = By.id("add-to-cart-sauce-labs-bike-light");
+    private final By itemNumber = By.cssSelector("[data-test='shopping-cart-badge']");
 
     public InventoryPage (WebDriver driver) {
         this.driver = driver;
@@ -27,6 +25,6 @@ public class InventoryPage {
 
     // Return true if exists
     public boolean checkIfExist() {
-        return !driver.findElements(redBalloon).isEmpty();
+        return !driver.findElements(itemNumber).isEmpty();
     }
 }
