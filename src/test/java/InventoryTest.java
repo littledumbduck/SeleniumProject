@@ -2,6 +2,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -48,5 +49,10 @@ public class InventoryTest {
         assertEquals(2, inventoryPage.checkItemNumber());
     }
 
-
+    @Test
+    public void botonCambiaTrasAnadirProducto() throws InterruptedException {
+        loginPage.fullLogin("standard_user", "secret_sauce");
+        inventoryPage.anadirBackpack();
+        assertEquals("Remove", driver.findElement(By.id("remove-sauce-labs-backpack")).getText());
+    }
 }
